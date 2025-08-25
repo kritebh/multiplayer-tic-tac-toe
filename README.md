@@ -1,5 +1,8 @@
 # 🎮 Multiplayer Tic Tac Toe
 
+!["Multiplayer Tic tac Toe"](/screenshot.png)
+
+
 A real-time multiplayer Tic Tac Toe game that runs on your local network. Built with Node.js, Express, and Socket.IO for seamless real-time gameplay.
 
 ## ✨ Features
