@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplayer Tic Tac Toe</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎮 Multiplayer Tic Tac Toe</h1>
+            <p>Play with friends on the same network!</p>
+        </header>
+
+        <div id="lobby" class="lobby">
+            <div class="lobby-content">
+                <h2>Join or Create Game</h2>
+                <div class="player-name-input">
+                    <input type="text" id="playerName" placeholder="Enter your name" maxlength="20" required>
+                </div>
+                <div class="game-input">
+                    <input type="text" id="gameId" placeholder="Enter Game ID (or leave empty to create new)" maxlength="6">
+                    <button id="joinBtn" class="btn btn-primary">Join Game</button>
+                </div>
+                <div class="or-divider">
+                    <span>OR</span>
+                </div>
+                <button id="createBtn" class="btn btn-secondary">Create New Game</button>
+                
+                <div class="instructions">
+                    <h3>How to play:</h3>
+                    <ol>
+                        <li>One player creates a new game</li>
+                        <li>Share the Game ID with your friend</li>
+                        <li>Both players join the same game</li>
+                        <li>Start playing when both players are connected!</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <div id="game" class="game hidden">
+            <div class="game-header">
+                <div class="game-info">
+                    <h2>Game: <span id="currentGameId"></span></h2>
+                    <p id="gameStatus">Waiting for players...</p>
+                </div>
+                <button id="leaveBtn" class="btn btn-danger">Leave Game</button>
+            </div>
+
+            <div class="player-info">
+                <div class="player">
+                    <span class="player-symbol">X</span>
+                    <span class="player-name" id="player1Name">Player 1</span>
+                    <div class="player-status" id="player1Status">Waiting...</div>
+                    <div class="player-score" id="player1Score">Score: 0</div>
+                </div>
+                <div class="vs">VS</div>
+                <div class="player">
+                    <span class="player-symbol">O</span>
+                    <span class="player-name" id="player2Name">Player 2</span>
+                    <div class="player-status" id="player2Status">Waiting...</div>
+                    <div class="player-score" id="player2Score">Score: 0</div>
+                </div>
+            </div>
+
+            <div class="board-container">
+                <div class="board" id="board">
+                    <div class="cell" data-index="0"></div>
+                    <div class="cell" data-index="1"></div>
+                    <div class="cell" data-index="2"></div>
+                    <div class="cell" data-index="3"></div>
+                    <div class="cell" data-index="4"></div>
+                    <div class="cell" data-index="5"></div>
+                    <div class="cell" data-index="6"></div>
+                    <div class="cell" data-index="7"></div>
+                    <div class="cell" data-index="8"></div>
+                </div>
+            </div>
+
+            <div class="game-controls">
+                <button id="resetBtn" class="btn btn-secondary">New Game</button>
+            </div>
+        </div>
+
+        <div id="message" class="message hidden"></div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 
