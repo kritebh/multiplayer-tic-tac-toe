@@ -23,11 +23,11 @@ jobs:
             export NVM_DIR="$HOME/.nvm"
             [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # load nvm
             export PATH=$PATH:$HOME/.nvm/versions/node/v22.18.0/bin
+            
             cd /home/ec2-user/Multiplayer-Tic-Tac-Toe
             git pull origin main
 
-            # Kill existing Node process (if running)
-            pkill -f "node server.js" || true
-
             # Start server with pm2
-            pm2 restart my-app || pm2 start server.js --name my-app
+            pm2 delete multiplayer-tic-tac-toe
+            pm2 start server.js --name multiplayer-tic-tac-toe
+            pm2 save
