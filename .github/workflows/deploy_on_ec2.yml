@@ -20,6 +20,9 @@ jobs:
           username: ${{ secrets.EC2_USER }}
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # load nvm
+            export PATH=$PATH:$HOME/.nvm/versions/node/v22.18.0/bin
             cd /home/ec2-user/Multiplayer-Tic-Tac-Toe
             git pull origin main
 
