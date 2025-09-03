@@ -26,6 +26,5 @@ jobs:
             # Kill existing Node process (if running)
             pkill -f "node server.js" || true
 
-            # Start server in background
-            nohup node server.js > server.log 2>&1 &
-            disown
+            # Start server with pm2
+            pm2 restart my-app || pm2 start server.js --name my-app
